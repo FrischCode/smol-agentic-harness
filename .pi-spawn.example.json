@@ -1,0 +1,14 @@
+{
+  "python": "C:/Work/sah/.venv/Scripts/python.exe",
+  "host": "127.0.0.1",
+  "port": 8080,
+  "model": "demo-model",
+  "read": ["C:/Work"],
+  "write": ["C:/Work/sah"],
+  "exec": true,
+  "web": false,
+  "memory": "",
+  "default_max_turns": 30,
+  "default_max_runtime": 1800,
+  "max_concurrent": 2
+}

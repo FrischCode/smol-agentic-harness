@@ -1,0 +1,59 @@
+[project]
+name = "sah"
+# `uv pip install -e .` needs it: PEP 621 requires `name` and `version`, and a fresh machine's
+# documented bootstrap dies on the missing one.
+version = "0.1.0"
+description = "SAH -- Smol Agentic Harness"
+requires-python = ">=3.11"
+# Permissive on purpose, the reason written where the packaging reads it: the tree's claim is that
+# its owner can read all of it and change it without permission, and a copyleft would force that
+# owner to re-license their own modifications. `LICENSE` carries the text.
+license = "MIT"
+
+# Core is stdlib-only. No runtime dependency may be added to this list
+# without the decision and its reason written here first — the reason must travel
+# with the source that would come to depend on it.
+dependencies = []
+
+# Package discovery is pinned, because auto-discovery refuses a working tree: whatever directories
+# accumulate at the root next to `sah` as the tree is used — run output, throwaway scratch, the
+# operator's opt-in live-check suite (kept out of the shipped tree on purpose) — read as candidate
+# packages, and a fresh `uv pip install -e .` on a copy of a working tree dies on them. Only `sah`
+# is the package.
+[tool.setuptools]
+packages = ["sah"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers -p no:cacheprovider"
+
+# Lint and format are a dev concern, not a shipping one: the core is stdlib-only (the `dependencies`
+# above) and runs on any interpreter, while ruff lives in the venv. It exists so the code keeps the
+# promise its consistency already makes -- the repo looks tool-ed, so it actually is. `ruff check`
+# is the gate, and it carries the line ceiling (E501 at the 110 below): a ceiling the house declares
+# is a ceiling the machine enforces. `ruff format` is not run: it reshapes layout (quotes, spacing,
+# indentation) rather than wrapping lines, so it would re-style the house's deliberate layout while
+# leaving the very lines the ceiling polices untouched.
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["scratch", ".venv"]
+
+[tool.ruff.lint]
+# The E rules except indentation and whitespace (E1, E2), pyflakes (F), warnings (W), and import
+# order (I): E4 imports, E501 the line ceiling, E7 statements, E9 runtime. E501 is the one layout
+# fact the machine polices -- the ceiling the house declares, enforced at the 110 above. E1/E2 stay
+# out because the layout here is the house's deliberate style, and `ruff format` is not run for the
+# same reason: `ruff check` enforces the lint while the style stays the house's.
+select = ["E4", "E501", "E7", "E9", "F", "W", "I"]
+# Deliberate house patterns, not defects, ignored one rule at a time so the exclusion stays narrow and
+# cannot conceal unrelated findings: E741 the terse `l` loop/exception var, E731 the named lambda
+# assignment. I001 (import order) is ignored too -- the imports here are pure (no import side effects),
+# so order has no functional effect, and its auto-fix rewraps long import lists, a layout change we keep
+# out. `I` stays selected so any other isort finding (a missing required import) is still reported.
+ignore = ["E741", "E731", "I001"]
+
+[tool.ruff.lint.per-file-ignores]
+# conftest puts the repo root on sys.path, so anything importing sah must come after that code; the
+# "imports at the top of the file" rule does not apply to that file by construction.
+"tests/conftest.py" = ["E402"]

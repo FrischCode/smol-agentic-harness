@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.pi/
+scratch/
+.venv/
+/runs/
+# machine config: the local .env holds this box's endpoints; .env.example (the shape) stays tracked
+.env
+# machine config: the pi spawner's grants/backend for this box; .pi-spawn.example.json (the shape) stays tracked
+.pi-spawn.json
+# live checks: opt-in, environment-specific (point at a real server); not part of the shipped repo
+live/
+# editor-local config: the .vscode folder is machine state, not tree content
+.vscode/
+.coverage
+# ruff cache: ruff also writes a self-ignoring .gitignore inside this folder, but the policy belongs
+# in the tree's own file, not in the artifact it governs
+.ruff_cache/
