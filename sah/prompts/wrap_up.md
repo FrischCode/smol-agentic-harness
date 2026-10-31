@@ -1,0 +1,1 @@
+This run's budget of turns or time is used up. Wrap up now: give your final answer with what you already have. Do not start new work — if one more tool call is strictly needed to deliver it, make that the last one, and then answer.

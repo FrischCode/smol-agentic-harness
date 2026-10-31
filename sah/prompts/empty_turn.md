@@ -1,0 +1,1 @@
+Your last reply came back with no text and no tool call, so nothing happened and the run is asking you again. Make the tool call you need, sent fresh and in full. If the task is already complete, say so in one plain line — a turn with words and no call ends the run.

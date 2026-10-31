@@ -1,0 +1,15 @@
+{
+  "minimal": {
+    "model": "a-model-name"
+  },
+  "full": {
+    "model": "a-model-name",
+    "host": "127.0.0.1",
+    "port": 8080,
+    "base_url": "",
+    "api_key": "",
+    "think": "xhigh",
+    "context": 131072,
+    "vision": false
+  }
+}
