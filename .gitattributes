@@ -1,0 +1,15 @@
+# Normalize line endings so a fresh clone is runnable on any platform.
+# core.autocrlf=true stores LF in the repo but would hand a .sh file CRLF on
+# checkout -- and a "#!/usr/bin/env bash\r" shebang will not execute. Pin the
+# EOL each file type actually needs; comments must sit on their own lines here.
+* text=auto
+
+# Shell scripts must always be LF (a CRLF shebang fails: bad interpreter).
+*.sh   text eol=lf
+
+# Windows batch wants CRLF; LF tolerates on modern cmd, but be explicit and correct.
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# The log and profile artifacts are LF on every platform.
+*.jsonl text eol=lf

@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.pi/
+scratch/
+# the face's estate for the operator's files (SAHW's attach.write_files): one home per workspace a run
+# stands in, made on the request that needs it — machine state, never tree content
+.sahw/
+.venv/
+/runs/
+# machine config: the local .env holds this box's endpoints; .env.example (the shape) stays tracked
+.env
+# machine config: data/ holds this box's model profiles (models.json) and prompt overrides
+# (data/<name>.md standing in for sah/prompts/<name>.md); the example (the shape) stays tracked
+data/*
+!data/models.example.json
+# machine config: the pi spawner's grants/backend for this box; .pi-spawn.example.json (the shape) stays tracked
+.pi-spawn.json
+# live checks: opt-in, environment-specific (point at a real server); not part of the shipped repo
+live/
+# editor-local config: the .vscode folder is machine state, not tree content
+.vscode/
+.coverage
+# ruff cache: ruff also writes a self-ignoring .gitignore inside this folder, but the policy belongs
+# in the tree's own file, not in the artifact it governs
+.ruff_cache/

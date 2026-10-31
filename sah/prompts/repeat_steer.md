@@ -1,0 +1,1 @@
+You have made the same call with the same arguments several times and it keeps returning the same result. Repeating it unchanged will not help. Try a different approach — a different tool, different arguments, or reading what you already got — and if you are genuinely stuck, say so instead of calling again.
