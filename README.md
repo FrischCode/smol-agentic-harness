@@ -12,31 +12,11 @@ A **synchronous loop**, a **stdlib-only core**, one **append-only log**, and a *
 interface**. Driven by you, your agent or your pipeline.
 
 > [!NOTE]
-> It is a *harness*, not a framework: it runs a model against tools under permissions you
-> grant per run, records every step to a log that is the ground-truth report of what happened.
+> It is a *harness*, not a framework. **And it has produced its very own optional, fully featured WebUI: [S ╱─╲ H (W) • Smol Agentic Harness's WebUI](https://github.com/FrischCode/smol-agentic-harness-webui)**.
 
 > [!CAUTION]
 > *Agentic execution is inherently unsafe. Sandboxing and other mitigations may reduce
 > risk, but do not guarantee containment. Use a VM and discretion.*
-
-## Contents
-
-- [Screenshot](#screenshot)
-- [Quickstart](#quickstart)
-- [The front door (`sah` / `sah-call`)](#the-front-door-sah--sah-call)
-- [The machine's own config (`data/`)](#the-machines-own-config-data)
-- [Five commands](#five-commands)
-  - [`run` flags](#run-flags)
-  - [`send` flags](#send-flags)
-- [The operator's channel (slash commands)](#the-operators-channel-slash-commands)
-- [What a run leaves behind](#what-a-run-leaves-behind)
-- [How it works](#how-it-works)
-- [Extensions](#extensions)
-  - [MCP](#mcp)
-- [Skills](#skills)
-- [Testing](#testing)
-- [License](#license)
-- [Credits](#credits)
 
 ## Screenshot
 
@@ -58,6 +38,25 @@ the turn's own numbers — context occupancy against the window, tokens, rate, a
 took. Everything on screen is a projection of the run's one append-only log: `sah export` on the
 folder renders the same conversation as Markdown.
 </details>
+
+## Contents
+
+- [Screenshot](#screenshot)
+- [Quickstart](#quickstart)
+- [The front door (`sah` / `sah-call`)](#the-front-door-sah--sah-call)
+- [The machine's own config (`data/`)](#the-machines-own-config-data)
+- [Five commands](#five-commands)
+  - [`run` flags](#run-flags)
+  - [`send` flags](#send-flags)
+- [The operator's channel (slash commands)](#the-operators-channel-slash-commands)
+- [What a run leaves behind](#what-a-run-leaves-behind)
+- [How it works](#how-it-works)
+- [Extensions](#extensions)
+  - [MCP](#mcp)
+- [Skills](#skills)
+- [Testing](#testing)
+- [License](#license)
+- [Credits](#credits)
 
 ## Quickstart
 
